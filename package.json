@@ -1,0 +1,9 @@
+{
+  "name": "twitterbot",
+  "version": "1.0.0",
+  "description": "RoboAkin, a twitter bot",
+  "main": "bot.js",
+  "repository": {},
+  "author": "Akin Sowemimo",
+  "license": "MIT"
+}

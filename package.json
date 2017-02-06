@@ -5,5 +5,8 @@
   "main": "bot.js",
   "repository": {},
   "author": "Akin Sowemimo",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "twit": "^2.2.5"
+  }
 }

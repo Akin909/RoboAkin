@@ -1,12 +1,39 @@
-// Dependencies ========================================
+// Dependencies =======================================================
 var twit = require('twit');
 var config = require('./config');
 
 var Twitter = new twit(config);
+// Use Streams API for interacting with a USER
+// Set up a user stream
+var stream = Twitter.stream('user');
 
+// FOLLOW-REPLY BOT =========================================================
+// when someone follows
+stream.on('follow',followed);
+// Trigger the callback
+function followed(event) {
+	console.log('Follow Event is running');	
+	// get user's twitter handler (screen name)
+	var name = event.source.name,
+		screenName = event.source.screen_name;
+	// function that repies back to the user who followed
+	tweetNow('@' + screenName + ' Thank you for the follow up.')
+}
 
+function tweetNow(tweetTxt) {
+	var tweet = {
+	status: tweetTxt	
+	}	
+	Twitter.post('statuses/update', tweet, function(err, data, response) {
+		if (err) {
+		console.log('Error in Replying');	
+		} else {
+		console.log('Gratitude shown successfully')	
+		}	
+	});
+}
 
-// RETWEET BOT ======================================
+// RETWEET BOT =======================================================
 // find latest tweet according the query 'q' in params
 var retweet = function() {
 	var params = {
@@ -60,7 +87,6 @@ function favoriteTweet() {
 
 	Twitter.get('search/tweets',params, function(err,data) {
 		// find tweets
-		console.log(data);
 		var tweet = data.statuses;
 		var randomTweet = ranDom(tweet); // pick a random tweet
 

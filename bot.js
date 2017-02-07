@@ -60,6 +60,7 @@ function favoriteTweet() {
 
 	Twitter.get('search/tweets',params, function(err,data) {
 		// find tweets
+		console.log(data);
 		var tweet = data.statuses;
 		var randomTweet = ranDom(tweet); // pick a random tweet
 

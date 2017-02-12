@@ -69,8 +69,8 @@ var retweet = function() {
 }
 // Grab & retweet as soon as program is running...
 	retweet();
-// Retweet every 50 minutes
-setInterval(retweet, 5000000);
+// Retweet every 4 hours
+setInterval(retweet, 15000000);
 
 // FAVOURITE BOT ===================
 
@@ -106,8 +106,8 @@ function favoriteTweet() {
 
 // grab & 'favorite' a tweet as soon as program is running...
 favoriteTweet();
-//'favorite' a tweet every 60 minutes
-setInterval(favoriteTweet,3600000);
+//'favorite' a tweet every 5 hours
+setInterval(favoriteTweet,18000000);
 
 //function to generate a random tweet
 
